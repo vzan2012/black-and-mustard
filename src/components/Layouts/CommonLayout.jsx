@@ -1,13 +1,16 @@
 import React from "react";
 
-import "../styles/global.css";
-import Header from "./header/Header";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+
+import "../../styles/global.css";
 
 const CommonLayout = ({ children }) => {
   return (
     <div id="main">
       <Header />
       {children}
+      <Footer />
     </div>
   );
 };
