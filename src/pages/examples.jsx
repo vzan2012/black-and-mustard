@@ -7,10 +7,9 @@ import ContentLayout from "../components/Layouts/ContentLayout";
 import Block from "../components/UI/Block";
 
 const Examples = () => {
-  // Using useStaticQuery
-  const data = useStaticQuery(graphql`
-    query AllFiles {
-      allFiles: allFile {
+  const allFilesList = graphql`
+    query AllFile {
+      allFile {
         nodes {
           id
           name
@@ -18,16 +17,13 @@ const Examples = () => {
         }
       }
     }
-  `);
-
-  const allFiles = data.allFiles.nodes;
-
-  console.log(allFiles);
+  `;
 
   return (
     <CommonLayout>
       <PageContent>
         <ContentLayout>
+          {/* <Block>{filesData}</Block> */}
           <Block>
             <h1>Examples</h1>
             <p>
@@ -173,5 +169,23 @@ const Examples = () => {
     </CommonLayout>
   );
 };
+
+// StaticQuery Component
+// const AllFiles = (props) => (
+//   <StaticQuery
+//     query={graphql`
+//       query AllFile {
+//         allFile {
+//           nodes {
+//             id
+//             name
+//             relativePath
+//           }
+//         }
+//       }
+//     `}
+//     render={(files) => console.log("files")}
+//   />
+// );
 
 export default Examples;
