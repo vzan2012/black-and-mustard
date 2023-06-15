@@ -7,7 +7,7 @@ const Logo = ({ caption }) => {
       <div id="logo_text">
         <h1>
           <Link to="/">
-            black<span class="logo_colour"> &amp; mustard</span>
+            black<span className="logo_colour"> &amp; mustard</span>
           </Link>
         </h1>
         <h2>{caption}</h2>

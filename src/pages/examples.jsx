@@ -1,10 +1,29 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+
 import CommonLayout from "../components/Layouts/CommonLayout";
 import PageContent from "../components/UI/PageContent";
 import ContentLayout from "../components/Layouts/ContentLayout";
 import Block from "../components/UI/Block";
 
 const Examples = () => {
+  // Using useStaticQuery
+  const data = useStaticQuery(graphql`
+    query AllFiles {
+      allFiles: allFile {
+        nodes {
+          id
+          name
+          relativePath
+        }
+      }
+    }
+  `);
+
+  const allFiles = data.allFiles.nodes;
+
+  console.log(allFiles);
+
   return (
     <CommonLayout>
       <PageContent>
@@ -57,7 +76,7 @@ const Examples = () => {
             <p>
               images can be placed on the left, in the center or on the right:
             </p>
-            <span class="left">
+            <span className="left">
               <img src="/graphic.png" alt="example graphic" />
             </span>
             <p>
@@ -67,10 +86,10 @@ const Examples = () => {
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum.
             </p>
-            <span class="center">
+            <span className="center">
               <img src="/graphic.png" alt="example graphic" />
             </span>
-            <span class="right">
+            <span className="right">
               <img src="/graphic.png" alt="example graphic" />
             </span>
             <p>
@@ -112,7 +131,7 @@ const Examples = () => {
             </table>
             <h2>Form Elements</h2>
             <form action="#" method="post">
-              <div class="form_settings">
+              <div className="form_settings">
                 <p>
                   <span>Form field example</span>
                   <input type="text" name="name" value="" />
@@ -124,7 +143,7 @@ const Examples = () => {
                 <p>
                   <span>Checkbox example</span>
                   <input
-                    class="checkbox"
+                    className="checkbox"
                     type="checkbox"
                     name="name"
                     value=""
@@ -140,7 +159,7 @@ const Examples = () => {
                 <p style={{ paddingTop: "15px" }}>
                   <span>&nbsp;</span>
                   <input
-                    class="submit"
+                    className="submit"
                     type="submit"
                     name="name"
                     value="button"

@@ -6,7 +6,11 @@ import Block from "../components/UI/Block";
 import { Link, graphql } from "gatsby";
 
 const Home = (props) => {
-  const { title, description } = props.data.site.siteMetaData;
+  const { title, description } = props.data.site.siteMetadata;
+
+  console.log(title, description);
+
+  // console.log(title, description);
   return (
     <CommonLayout>
       <PageContent>
@@ -40,7 +44,7 @@ const Home = (props) => {
 export const query = graphql`
   query GetSiteMetaData {
     site {
-      siteMetaData {
+      siteMetadata {
         title
         description
         copyright
