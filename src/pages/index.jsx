@@ -2,8 +2,11 @@ import * as React from "react";
 import CommonLayout from "../components/Layouts/CommonLayout";
 import PageContent from "../components/UI/PageContent";
 import ContentLayout from "../components/Layouts/ContentLayout";
+import SideBarLayout from "../components/Layouts/SideBarLayout";
+
 import Block from "../components/UI/Block";
 import { Link, graphql } from "gatsby";
+import LatestNews from "../components/LatestNews/LatestNews";
 
 const Home = (props) => {
   const { title, description } = props.data.site.siteMetadata;
@@ -36,6 +39,9 @@ const Home = (props) => {
             </ul>
           </Block>
         </ContentLayout>
+        <SideBarLayout>
+          <LatestNews />
+        </SideBarLayout>
       </PageContent>
     </CommonLayout>
   );

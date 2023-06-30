@@ -161,7 +161,7 @@ const Examples = () => {
                   <span>&nbsp;</span>
                   <Button
                     className="submit"
-                    type="submit"
+                    type="button"
                     name="name"
                     value="button"
                   />
