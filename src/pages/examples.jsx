@@ -5,6 +5,10 @@ import CommonLayout from "../components/Layouts/CommonLayout";
 import PageContent from "../components/UI/PageContent";
 import ContentLayout from "../components/Layouts/ContentLayout";
 import Block from "../components/UI/Block";
+import Button from "../components/UI/Button";
+import Select from "../components/UI/Select";
+import TextField from "../components/UI/TextField";
+import TextArea from "../components/UI/TextArea";
 
 const Examples = () => {
   const allFilesList = graphql`
@@ -130,11 +134,11 @@ const Examples = () => {
               <div className="form_settings">
                 <p>
                   <span>Form field example</span>
-                  <input type="text" name="name" value="" />
+                  <TextField name="name" value="" />
                 </p>
                 <p>
                   <span>Textarea example</span>
-                  <textarea rows="8" cols="50" name="name"></textarea>
+                  <TextArea rows="8" cols="50" name="name"></TextArea>
                 </p>
                 <p>
                   <span>Checkbox example</span>
@@ -147,14 +151,15 @@ const Examples = () => {
                 </p>
                 <p>
                   <span>Dropdown list example</span>
-                  <select id="id" name="name">
-                    <option value="1">Example 1</option>
-                    <option value="2">Example 2</option>
-                  </select>
+                  <Select
+                    id="id"
+                    name="name"
+                    items={["Example1", "Example2"]}
+                  />
                 </p>
                 <p style={{ paddingTop: "15px" }}>
                   <span>&nbsp;</span>
-                  <input
+                  <Button
                     className="submit"
                     type="submit"
                     name="name"
