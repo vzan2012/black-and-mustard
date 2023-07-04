@@ -1,14 +1,17 @@
 import React from "react";
 
-const Select = ({ id, name, items }) => {
+const Select = ({ id, name, items, spanLabel }) => {
   return (
-    <select id={id} name={name}>
-      {items.map((item, index) => (
-        <option key={++index} value={++index}>
-          {item}
-        </option>
-      ))}
-    </select>
+    <>
+      <span>{spanLabel}</span>
+      <select id={id} name={name}>
+        {items.map((item, index) => (
+          <option key={++index} value={++index}>
+            {item}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 

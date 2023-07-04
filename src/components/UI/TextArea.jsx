@@ -1,11 +1,14 @@
 import React from "react";
 
 const TextArea = (props) => {
-  const { rows, cols, children, resize } = props;
+  const { rows, cols, children, resize, spanLabel } = props;
   return (
-    <textarea rows={rows} cols={cols} name={props.name}>
-      {children}
-    </textarea>
+    <>
+      <span>{spanLabel}</span>
+      <textarea rows={rows} cols={cols} name={props.name}>
+        {children}
+      </textarea>
+    </>
   );
 };
 

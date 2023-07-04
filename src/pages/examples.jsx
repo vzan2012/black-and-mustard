@@ -133,12 +133,19 @@ const Examples = () => {
             <form action="#" method="post">
               <div className="form_settings">
                 <p>
-                  <span>Form field example</span>
-                  <TextField name="name" value="" />
+                  <TextField
+                    name="name"
+                    value=""
+                    spanLabel="Form field example"
+                  />
                 </p>
                 <p>
-                  <span>Textarea example</span>
-                  <TextArea rows="8" cols="50" name="name"></TextArea>
+                  <TextArea
+                    rows="8"
+                    cols="50"
+                    name="name"
+                    spanLabel="Textarea example"
+                  ></TextArea>
                 </p>
                 <p>
                   <span>Checkbox example</span>
@@ -150,11 +157,11 @@ const Examples = () => {
                   />
                 </p>
                 <p>
-                  <span>Dropdown list example</span>
                   <Select
                     id="id"
                     name="name"
-                    items={["Example1", "Example2"]}
+                    items={["Example 1", "Example 2"]}
+                    spanLabel="Dropdown list example"
                   />
                 </p>
                 <p style={{ paddingTop: "15px" }}>

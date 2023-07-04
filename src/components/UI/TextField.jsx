@@ -1,7 +1,13 @@
 import React from "react";
 
 const TextField = (props) => {
-  return <input type="text" {...props} />;
+  const { spanLabel, type } = props;
+  return (
+    <>
+      <span>{spanLabel}</span>
+      <input type={type} />
+    </>
+  );
 };
 
 export default TextField;
