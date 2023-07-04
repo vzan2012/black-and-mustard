@@ -1,13 +1,16 @@
 import React from "react";
 
-const TextField = (props) => {
+const TextField = (props, ref) => {
   const { spanLabel, type } = props;
   return (
     <>
       <span>{spanLabel}</span>
-      <input type={type} />
+      <input type={type} ref={ref} />
     </>
   );
 };
 
-export default TextField;
+// Forwarded Ref
+const forwardedRef = React.forwardRef(TextField);
+
+export default forwardedRef;

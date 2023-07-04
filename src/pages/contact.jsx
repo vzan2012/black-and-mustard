@@ -10,19 +10,70 @@ import TextArea from "../components/UI/TextArea";
 import TextField from "../components/UI/TextField";
 
 const Contact = () => {
-  const [contactName, setContactName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
-  const [message, setMessage] = useState("");
+  const initialFormDetails = {
+    contactName: null,
+    emailAddress: null,
+    message: null,
+  };
+
+  const initialErrorData = {
+    status: false,
+    message: null,
+  };
+
+  const [formDetails, setFormDetails] = useState(initialFormDetails);
+  const [errorData, setErrorData] = useState(initialErrorData);
 
   const contactNameRef = useRef();
   const emailAddressRef = useRef();
   const messageRef = useRef();
 
+  const fieldValidator = (field, text) => {
+    if (text.length <= 5 && field !== "Email") {
+      setErrorData({
+        status: true,
+        message: `${field} - Field should have characters greater than 6`,
+      });
+      return false;
+    }
+
+    if (field === "Email") {
+      const status = text.length !== 0 ? true : false;
+      if (!status) {
+        setErrorData({
+          status: true,
+          message: `${field} - Field cannot be empty`,
+        });
+      }
+      return status;
+    }
+
+    return true;
+  };
+
   const contactFormHandler = (e) => {
     e.preventDefault();
+    const contactName = contactNameRef.current.value;
+    const emailAddress = emailAddressRef.current.value;
+    const message = messageRef.current.value;
 
-    console.log("test");
-    console.log(contactNameRef.current);
+    if (
+      fieldValidator("Name", contactName) &&
+      fieldValidator("Email", emailAddress) &&
+      fieldValidator("Message", message)
+    ) {
+      setErrorData({
+        status: false,
+        message: null,
+      });
+      setFormDetails({
+        contactName,
+        emailAddress,
+        message,
+      });
+    }
+
+    console.log(formDetails);
   };
 
   return (
@@ -38,16 +89,18 @@ const Contact = () => {
             <form onSubmit={contactFormHandler}>
               <div className="form_settings">
                 <p>
-                  {/* <TextField
+                  <TextField
                     spanLabel="Name"
                     type="text"
                     ref={contactNameRef}
-                  /> */}
-
-                  <input type="text" ref={contactNameRef} />
+                  />
                 </p>
                 <p>
-                  <TextField spanLabel="Email Address" type="email" />
+                  <TextField
+                    spanLabel="Email Address"
+                    type="email"
+                    ref={emailAddressRef}
+                  />
                 </p>
                 <p>
                   <TextArea
@@ -55,6 +108,7 @@ const Contact = () => {
                     cols="50"
                     name="message"
                     spanLabel="Message"
+                    ref={messageRef}
                   ></TextArea>
                 </p>
                 <p style={{ paddingTop: "15px" }}>
@@ -66,6 +120,10 @@ const Contact = () => {
                     value="submit"
                   />
                 </p>
+
+                {errorData.status ? (
+                  <p className="errorText">{errorData.message}</p>
+                ) : undefined}
               </div>
             </form>
           </Block>

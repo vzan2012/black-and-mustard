@@ -376,3 +376,7 @@ table tr td {
   color: #47433f;
   border-top: 1px solid #fff;
 }
+
+.errorText {
+  color: red;
+}

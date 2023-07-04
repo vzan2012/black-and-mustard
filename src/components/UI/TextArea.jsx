@@ -1,15 +1,17 @@
 import React from "react";
 
-const TextArea = (props) => {
-  const { rows, cols, children, resize, spanLabel } = props;
+const TextArea = (props, ref) => {
+  const { rows, cols, children, spanLabel } = props;
   return (
     <>
       <span>{spanLabel}</span>
-      <textarea rows={rows} cols={cols} name={props.name}>
+      <textarea rows={rows} cols={cols} name={props.name} ref={ref}>
         {children}
       </textarea>
     </>
   );
 };
 
-export default TextArea;
+const forwardedRefTextArea = React.forwardRef(TextArea);
+
+export default forwardedRefTextArea;
