@@ -199,6 +199,7 @@ ul#menu li a {
 
 ul#menu li a:hover,
 ul#menu li.selected a,
+ul#menu li a.selected,
 ul#menu li.selected a:hover {
   color: #f8d53a;
   background: #fff;
@@ -391,4 +392,17 @@ table tr td {
   border: 1px dashed #0f0;
   margin: 15px auto;
   line-height: 20px;
+}
+
+.sidebar .linklist ul {
+  position: relative;
+}
+
+.sidebar .linklist ul li {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+.sidebar .linklist ul li a {
+  padding-left: 10px;
 }

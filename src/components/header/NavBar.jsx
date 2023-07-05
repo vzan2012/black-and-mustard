@@ -6,16 +6,24 @@ const NavBar = () => {
     <div id="menubar">
       <ul id="menu">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" activeClassName="selected">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/examples">Examples</Link>
+          <Link to="/examples" activeClassName="selected">
+            Examples
+          </Link>
         </li>
         <li>
-          <Link to="/page">Single Page</Link>
+          <Link to="/page" activeClassName="selected">
+            Single Page
+          </Link>
         </li>
         <li>
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/contact" activeClassName="selected">
+            Contact Us
+          </Link>
         </li>
       </ul>
     </div>

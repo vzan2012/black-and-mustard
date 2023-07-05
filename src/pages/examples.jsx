@@ -1,17 +1,19 @@
+import { graphql } from "gatsby";
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 import CommonLayout from "../components/Layouts/CommonLayout";
-import PageContent from "../components/UI/PageContent";
 import ContentLayout from "../components/Layouts/ContentLayout";
 import Block from "../components/UI/Block";
 import Button from "../components/UI/Button";
+import PageContent from "../components/UI/PageContent";
 import Select from "../components/UI/Select";
-import TextField from "../components/UI/TextField";
 import TextArea from "../components/UI/TextArea";
+import TextField from "../components/UI/TextField";
 
-import SideBarLayout from "../components/Layouts/SideBarLayout";
 import LatestNews from "../components/LatestNews/LatestNews";
+import SideBarLayout from "../components/Layouts/SideBarLayout";
+import LinkItem from "../components/LinkList/LinkItem/LinkItem";
+import LinkList from "../components/LinkList/LinkList";
 
 const Examples = () => {
   const allFilesList = graphql`
@@ -183,6 +185,12 @@ const Examples = () => {
         {/* SideBar Section  */}
         <SideBarLayout>
           <LatestNews />
+          <LinkList title="Useful Links">
+            <LinkItem id="1" title="Link 1" url="#" />
+            <LinkItem id="2" title="Link 2" url="#" />
+            <LinkItem id="3" title="Link 3" url="#" />
+            <LinkItem id="4" title="Link 4" url="#" />
+          </LinkList>
         </SideBarLayout>
       </PageContent>
     </CommonLayout>
