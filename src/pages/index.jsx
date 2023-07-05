@@ -11,9 +11,6 @@ import LatestNews from "../components/LatestNews/LatestNews";
 const Home = (props) => {
   const { title, description } = props.data.site.siteMetadata;
 
-  console.log(title, description);
-
-  // console.log(title, description);
   return (
     <CommonLayout>
       <PageContent>

@@ -378,5 +378,17 @@ table tr td {
 }
 
 .errorText {
-  color: red;
+  color: #f00;
+  text-align: center;
+  border: 1px dashed #f00;
+  margin: 15px auto;
+  line-height: 20px;
+}
+
+.success {
+  color: #0f0;
+  text-align: center;
+  border: 1px dashed #0f0;
+  margin: 15px auto;
+  line-height: 20px;
 }

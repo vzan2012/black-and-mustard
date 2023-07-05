@@ -23,11 +23,13 @@ const Contact = () => {
 
   const [formDetails, setFormDetails] = useState(initialFormDetails);
   const [errorData, setErrorData] = useState(initialErrorData);
+  const [formSubmitStatus, setFormSubmitStatus] = useState(false);
 
   const contactNameRef = useRef();
   const emailAddressRef = useRef();
   const messageRef = useRef();
 
+  // Form Field Validator
   const fieldValidator = (field, text) => {
     if (text.length <= 5 && field !== "Email") {
       setErrorData({
@@ -51,8 +53,10 @@ const Contact = () => {
     return true;
   };
 
+  // Form Handler
   const contactFormHandler = (e) => {
     e.preventDefault();
+
     const contactName = contactNameRef.current.value;
     const emailAddress = emailAddressRef.current.value;
     const message = messageRef.current.value;
@@ -66,14 +70,16 @@ const Contact = () => {
         status: false,
         message: null,
       });
-      setFormDetails({
+
+      setFormDetails((prevState) => ({
+        ...prevState,
         contactName,
         emailAddress,
         message,
-      });
-    }
+      }));
 
-    console.log(formDetails);
+      setFormSubmitStatus(true);
+    }
   };
 
   return (
@@ -124,10 +130,14 @@ const Contact = () => {
                 {errorData.status ? (
                   <p className="errorText">{errorData.message}</p>
                 ) : undefined}
+                {formSubmitStatus && (
+                  <p className="success">Thank you we will contact you soon</p>
+                )}
               </div>
             </form>
           </Block>
         </ContentLayout>
+        {/* SideBar Section  */}
         <SideBarLayout>
           <LatestNews />
         </SideBarLayout>

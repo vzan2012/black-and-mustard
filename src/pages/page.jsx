@@ -5,6 +5,9 @@ import Block from "../components/UI/Block";
 import PageContent from "../components/UI/PageContent";
 import { graphql } from "gatsby";
 
+import SideBarLayout from "../components/Layouts/SideBarLayout";
+import LatestNews from "../components/LatestNews/LatestNews";
+
 const Page = ({ data }) => {
   const pageData = data.markdownRemark.html;
 
@@ -16,6 +19,10 @@ const Page = ({ data }) => {
             <div dangerouslySetInnerHTML={{ __html: pageData }} />
           </Block>
         </ContentLayout>
+        {/* SideBar Section  */}
+        <SideBarLayout>
+          <LatestNews />
+        </SideBarLayout>
       </PageContent>
     </CommonLayout>
   );

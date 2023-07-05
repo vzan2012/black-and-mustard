@@ -10,6 +10,9 @@ import Select from "../components/UI/Select";
 import TextField from "../components/UI/TextField";
 import TextArea from "../components/UI/TextArea";
 
+import SideBarLayout from "../components/Layouts/SideBarLayout";
+import LatestNews from "../components/LatestNews/LatestNews";
+
 const Examples = () => {
   const allFilesList = graphql`
     query AllFile {
@@ -177,6 +180,10 @@ const Examples = () => {
             </form>
           </Block>
         </ContentLayout>
+        {/* SideBar Section  */}
+        <SideBarLayout>
+          <LatestNews />
+        </SideBarLayout>
       </PageContent>
     </CommonLayout>
   );
